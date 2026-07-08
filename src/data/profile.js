@@ -214,28 +214,28 @@ export const featured = [
   },
   {
     no: "03",
-    name: "ChatFlow",
-    flag: "Distributed Real-Time Messaging",
+    name: "Harbor",
+    flag: "LLM Reliability Platform",
     description:
-      "A multithreaded Java WebSocket chat server on AWS EC2 with a RabbitMQ topic exchange for message routing and channel pooling to cut broker overhead. Tuned thread-pool sizing and connection reuse to sustain ~131K messages/sec across four load-balanced servers under peak load.",
+      "A self-hosted reliability layer that sits between an app and its LLM provider: an OpenAI-compatible Go gateway with streaming semantic cache, model routing, provider fallback with circuit breaking, and Redis rate limiting, paired with a Python evaluation control plane whose statistical regression gate blocks quality drops in CI — fully observable via Prometheus and Grafana.",
     metrics: [
-      { value: 131, suffix: "K", label: "msg/sec peak" },
-      { value: 4, suffix: "", label: "load-balanced servers" },
-      { value: 20, suffix: "", label: "RabbitMQ queues" },
+      { value: 9.5, suffix: "\u00d7", label: "faster on cache hits (p50)" },
+      { value: 85, suffix: "%", label: "estimated spend avoided" },
+      { value: 100, suffix: "%", label: "served through a provider outage" },
     ],
-    tags: ["Java", "RabbitMQ", "AWS EC2", "WebSockets", "Load Balancing"],
+    tags: ["Go", "FastAPI", "Redis", "pgvector", "Prometheus", "Grafana"],
     links: {
-      github: "https://github.com/sohanreddyk/chatflow",
+      github: "https://github.com/sohanreddyk/harbor",
       demo: null,
     },
     pipeline: {
-      title: "Message path",
+      title: "Request path",
       nodes: [
-        { label: "multithreaded Java client" },
-        { label: "Application Load Balancer", detail: "4 servers" },
-        { label: "WebSocket chat servers", hot: true },
-        { label: "RabbitMQ topic exchange", detail: "20 queues" },
-        { label: "channel pooling + reuse" },
+        { label: "RAG app \u2192 Go gateway (SSE)" },
+        { label: "rate limit \u2192 route" },
+        { label: "semantic cache", detail: "85% hit rate", hot: true },
+        { label: "provider fallback + circuit breaker" },
+        { label: "Prometheus + Grafana" },
       ],
     },
   },
@@ -245,6 +245,14 @@ export const featured = [
 export const projectsIndex = [
   {
     no: "04",
+    name: "ChatFlow",
+    description:
+      "A multithreaded Java WebSocket chat server on AWS EC2 with a RabbitMQ topic exchange and channel pooling, tuned to sustain ~131K messages/sec across four load-balanced servers.",
+    tags: "Java · RabbitMQ · AWS EC2",
+    url: "https://github.com/sohanreddyk/chatflow",
+  },
+  {
+    no: "05",
     name: "Self-Driving Car RL",
     description:
       "A 2D top-down driving simulator in PyTorch with ray-cast sensors, trained with DQN and PPO to learn control policies from scratch.",
@@ -252,7 +260,7 @@ export const projectsIndex = [
     url: "https://github.com/sohanreddyk/self-driving-car-rl",
   },
   {
-    no: "05",
+    no: "06",
     name: "Leaf Disease Detection",
     description:
       "A CNN image classifier diagnosing disease in mango and banana leaves at 98.7% accuracy, built as a fast field diagnostic for growers.",
@@ -260,7 +268,7 @@ export const projectsIndex = [
     url: "https://github.com/sohanreddyk/leaf-disease-detection",
   },
   {
-    no: "06",
+    no: "07",
     name: "Reddit Sentiment Analysis",
     description:
       "An NLP tool that scrapes Reddit threads and summarizes posts, scores sentiment, and visualizes engagement to cut through the noise.",
