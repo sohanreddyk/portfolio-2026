@@ -1,6 +1,8 @@
 # Sohan Reddy — Portfolio v2
 
-Apple-clean personal portfolio. Vite + React + Framer Motion.
+Live Link: https://www.sohanreddy.org/
+
+Personal portfolio. Vite + React + Framer Motion.
 
 ## Run it
 
