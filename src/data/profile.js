@@ -122,7 +122,7 @@ export const about = {
 /* --- Impact band (count-up stats) --- */
 export const impactStats = [
   { value: 594, suffix: " RPS", label: "Peak gateway throughput (Helmsman, warm cache)" },
-  { value: 17, suffix: "×", label: "Latency & throughput gain from semantic caching" },
+  { value: 85, suffix: "%", label: "LLM spend avoided (Harbor gateway)" },
   { value: 95, suffix: "%", label: "DDoS detection accuracy (IEEE research)" },
   { value: 1, suffix: "", label: "IEEE peer-reviewed publication" },
 ];
@@ -228,6 +228,7 @@ export const featured = [
       github: "https://github.com/sohanreddyk/harbor",
       demo: null,
     },
+    image: "/projects/grafana.png",
     pipeline: {
       title: "Request path",
       nodes: [

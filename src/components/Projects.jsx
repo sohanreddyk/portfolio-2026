@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { featured, projectsIndex } from "../data/profile";
 import { Reveal } from "./motion";
@@ -30,6 +30,7 @@ function Pipeline({ data }) {
 
 function FeaturedProject({ project, index }) {
   const flip = index % 2 === 1;
+  const [imgOk, setImgOk] = useState(Boolean(project.image));
   const visualRef = useRef(null);
 
   const onMove = (e) => {
@@ -47,7 +48,17 @@ function FeaturedProject({ project, index }) {
         ref={visualRef}
         onMouseMove={onMove}
       >
-        <Pipeline data={project.pipeline} />
+        {project.image && imgOk ? (
+          <img
+            src={project.image}
+            alt={`${project.name} interface`}
+            className="project__shot"
+            loading="lazy"
+            onError={() => setImgOk(false)}
+          />
+        ) : (
+          <Pipeline data={project.pipeline} />
+        )}
       </div>
 
       <div>
@@ -102,7 +113,7 @@ export default function Projects() {
             Systems I've <em>built.</em>
           </h2>
           <p className="section-intro">
-            Two flagship systems where backend, distributed systems, and AI
+            Three flagship systems where backend, distributed systems, and AI
             infrastructure meet — plus a few more worth a look.
           </p>
         </Reveal>
