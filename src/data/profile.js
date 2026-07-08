@@ -228,7 +228,6 @@ export const featured = [
       github: "https://github.com/sohanreddyk/harbor",
       demo: null,
     },
-    image: "/projects/grafana.png",
     pipeline: {
       title: "Request path",
       nodes: [

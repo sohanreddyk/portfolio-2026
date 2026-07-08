@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { motion } from "framer-motion";
 import { featured, projectsIndex } from "../data/profile";
 import { Reveal } from "./motion";
@@ -30,7 +30,6 @@ function Pipeline({ data }) {
 
 function FeaturedProject({ project, index }) {
   const flip = index % 2 === 1;
-  const [imgOk, setImgOk] = useState(Boolean(project.image));
   const visualRef = useRef(null);
 
   const onMove = (e) => {
@@ -48,17 +47,7 @@ function FeaturedProject({ project, index }) {
         ref={visualRef}
         onMouseMove={onMove}
       >
-        {project.image && imgOk ? (
-          <img
-            src={project.image}
-            alt={`${project.name} interface`}
-            className="project__shot"
-            loading="lazy"
-            onError={() => setImgOk(false)}
-          />
-        ) : (
-          <Pipeline data={project.pipeline} />
-        )}
+        <Pipeline data={project.pipeline} />
       </div>
 
       <div>
