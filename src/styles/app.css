@@ -110,41 +110,17 @@ img {
   background: var(--accent);
 }
 .cursor-ring {
-  width: 46px;
-  height: 46px;
-  border: 1.5px solid rgba(26, 24, 21, 0.5);
-  background: radial-gradient(
-    circle at 34% 30%,
-    rgba(255, 255, 255, 0.45),
-    rgba(255, 255, 255, 0.06) 55%,
-    rgba(255, 255, 255, 0) 72%
-  );
-  box-shadow: 0 6px 20px rgba(26, 24, 21, 0.15),
-    inset 0 0 0 3px rgba(255, 255, 255, 0.28);
+  width: 34px;
+  height: 34px;
+  border: 1.5px solid var(--ink);
   transition: width 0.25s var(--ease-out), height 0.25s var(--ease-out),
-    border-color 0.25s, box-shadow 0.25s, opacity 0.25s;
-}
-/* little handle so the ring reads as a magnifying glass */
-.cursor-ring::after {
-  content: "";
-  position: absolute;
-  bottom: -7px;
-  right: -7px;
-  width: 13px;
-  height: 3.5px;
-  border-radius: 2px;
-  background: rgba(26, 24, 21, 0.5);
-  transform: rotate(45deg);
-  transform-origin: left center;
-  transition: background 0.25s;
+    border-color 0.25s, background 0.25s, opacity 0.25s;
 }
 .cursor-ring.is-hover {
-  width: 62px;
-  height: 62px;
+  width: 56px;
+  height: 56px;
   border-color: var(--accent);
-}
-.cursor-ring.is-hover::after {
-  background: var(--accent);
+  background: var(--accent-soft);
 }
 
 /* Scroll progress */
