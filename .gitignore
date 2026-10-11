@@ -7,3 +7,6 @@ dist-ssr
 !.vscode/extensions.json
 .env
 .env.*
+
+# /brag skill scratch output (final videos are copied into public/projects/)
+brag-output*/

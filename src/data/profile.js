@@ -195,6 +195,8 @@ export const featured = [
       github: "https://github.com/sohanreddyk/InspectIQ",
       demo: "https://inspectiq.pages.dev/",
     },
+    video: "/projects/inspectiq.mp4",
+    poster: "/projects/inspectiq.jpg",
     pipeline: {
       title: "Inspection pipeline",
       nodes: [
@@ -222,6 +224,8 @@ export const featured = [
       github: "https://github.com/sohanreddyk/realtime-analytics-pipeline",
       demo: null,
     },
+    video: "/projects/insight.mp4",
+    poster: "/projects/insight.jpg",
     pipeline: {
       title: "Event path",
       nodes: [
@@ -249,6 +253,8 @@ export const featured = [
       github: "https://github.com/sohanreddyk/harbor",
       demo: null,
     },
+    video: "/projects/harbor.mp4",
+    poster: "/projects/harbor.jpg",
     pipeline: {
       title: "Request path",
       nodes: [

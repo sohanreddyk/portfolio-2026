@@ -901,6 +901,76 @@ img {
   line-height: 0.4;
 }
 
+/* launch videos (/brag) */
+/* Featured project with a video: video on top at full width, text below in two columns */
+.project--video {
+  /* rows: title block, video, then description | metrics */
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  column-gap: clamp(28px, 5vw, 68px);
+  row-gap: clamp(24px, 3.5vw, 40px);
+  align-items: start;
+}
+.project--video .project__body {
+  display: contents;
+}
+.project--video .project__head {
+  grid-row: 1;
+  grid-column: 1 / -1;
+}
+.project--video .project__visual--video {
+  grid-row: 2;
+  grid-column: 1 / -1;
+  order: 0;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  box-shadow: var(--shadow-lg, var(--shadow-md));
+}
+.project--video .project__visual--video::before {
+  display: none;
+}
+.project--video .project__desc {
+  grid-row: 3;
+  grid-column: 1;
+  margin: 0;
+  max-width: 52ch;
+}
+.project--video .project__metrics {
+  margin-top: 0;
+}
+.project--video .project__side {
+  grid-row: 3;
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+}
+.project--video .project__tags {
+  margin-top: 24px;
+}
+.project--video .project__links {
+  margin-top: 24px;
+}
+.brag-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  background: #000;
+}
+.pindex__video {
+  position: relative;
+  width: min(100%, 560px);
+  aspect-ratio: 16 / 9;
+  margin: -6px 0 30px 0;
+  margin-left: clamp(0px, 4vw, 52px);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  border: 1px solid var(--hairline);
+  box-shadow: var(--shadow-md);
+  background: #000;
+}
+
 /* project index (non-featured) */
 .pindex {
   border-top: 1px solid var(--hairline);
@@ -1213,5 +1283,24 @@ img {
   }
   .btn {
     padding: 13px 22px;
+  }
+}
+
+@media (max-width: 860px) {
+  .project--video {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .project--video .project__desc {
+    grid-column: 1;
+    grid-row: 3;
+  }
+  .project--video .project__side {
+    grid-column: 1;
+    grid-row: 4;
+  }
+}
+@media (max-width: 520px) {
+  .project__visual.project__visual--video {
+    aspect-ratio: 16 / 9;
   }
 }

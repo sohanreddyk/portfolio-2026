@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { featured, projectsIndex } from "../data/profile";
 import { Reveal } from "./motion";
 import Counter from "./effects/Counter";
+import BragVideo from "./BragVideo";
 import { GitHubIcon, ExternalIcon, ArrowIcon } from "./icons/Icons";
 
 function Pipeline({ data }) {
@@ -41,21 +42,36 @@ function FeaturedProject({ project, index }) {
   };
 
   return (
-    <Reveal className={`project ${flip ? "project--flip" : ""}`}>
+    <Reveal
+      className={`project ${
+        project.video ? "project--video" : flip ? "project--flip" : ""
+      }`}
+    >
       <div
-        className="project__visual"
+        className={`project__visual ${project.video ? "project__visual--video" : ""}`}
         ref={visualRef}
         onMouseMove={onMove}
       >
-        <Pipeline data={project.pipeline} />
+        {project.video ? (
+          <BragVideo
+            src={project.video}
+            poster={project.poster}
+            title={project.name}
+          />
+        ) : (
+          <Pipeline data={project.pipeline} />
+        )}
       </div>
 
-      <div>
-        <span className="project__no">{project.no} / Featured</span>
-        <div className="project__flag">{project.flag}</div>
-        <h3 className="project__name">{project.name}</h3>
+      <div className="project__body">
+        <div className="project__head">
+          <span className="project__no">{project.no} / Featured</span>
+          <div className="project__flag">{project.flag}</div>
+          <h3 className="project__name">{project.name}</h3>
+        </div>
         <p className="project__desc">{project.description}</p>
 
+        <div className="project__side">
         <div className="project__metrics">
           {project.metrics.map((m) => (
             <div className="metric" key={m.label}>
@@ -86,6 +102,7 @@ function FeaturedProject({ project, index }) {
               <ExternalIcon size={18} /> Live
             </a>
           )}
+        </div>
         </div>
       </div>
     </Reveal>
@@ -130,6 +147,15 @@ export default function Projects() {
                 </span>
                 <span className="pindex__tags">{p.tags}</span>
               </a>
+              {p.video && (
+                <div className="pindex__video">
+                  <BragVideo
+                    src={p.video}
+                    poster={p.poster}
+                    title={p.name}
+                  />
+                </div>
+              )}
             </Reveal>
           ))}
         </div>
