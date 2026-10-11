@@ -1,8 +1,8 @@
 /* ============================================================
    PROFILE DATA — single source of truth.
-   Reconciled against Sohan's SWE résumé (Sohan_Kadiri_SWE_Resume.pdf)
-   + the real Helmsman / Lumen / ChatFlow repos. All numbers are the
-   actual measured values from those projects.
+   Reconciled against Sohan's role-specific résumés (public/*.pdf)
+   + the real project repos on github.com/sohanreddyk.
+   Where sources disagree, the résumé numbers win.
    ============================================================ */
 
 export const profile = {
@@ -19,9 +19,8 @@ export const profile = {
     "REST APIs and distributed services to RAG-powered LLM features."
   ),
 
-  // Résumé PDF: drop the uploaded file into /public with this exact name,
-  // then the button opens it. (Currently expects public/Sohan_Kadiri_SWE_Resume.pdf)
-  resumeUrl: "/Sohan_Kadiri_SWE_Resume.pdf",
+  // Résumé PDF: lives in /public. The hero button opens this file.
+  resumeUrl: "/SDE.pdf",
 
   socials: {
     github: "https://github.com/sohanreddyk",
@@ -38,13 +37,13 @@ export const heroLines = ["Sohan", "Reddy"];
 export const marquee = [
   "Go",
   "Python",
+  "TypeScript",
   "Distributed Systems",
+  "Kafka",
   "Kubernetes",
   "LLM Infrastructure",
   "AWS",
   "RAG",
-  "Backend Engineering",
-  "PyTorch",
   "Observability",
 ];
 
@@ -56,42 +55,47 @@ export const about = {
   ),
   body: [
     "I'm an MS Computer Science student at Northeastern University in Seattle " +
-      "(AI & Software Engineering, graduating May 2027), focused on backend " +
-      "engineering, cloud infrastructure, and applied machine learning.",
-    "My graduate work spans distributed systems — multithreaded servers on AWS " +
-      "EC2 with RabbitMQ, concurrent data processing in Java, and reinforcement-" +
-      "learning simulators in PyTorch. Beyond product work, I'm a published " +
-      "researcher: my IEEE paper introduces an interpretable, quantum-based " +
-      "2Q-learning approach for detecting DDoS attacks in fog computing.",
+      "(GPA 3.9, graduating May 2027), focused on backend engineering, " +
+      "distributed systems, cloud infrastructure, and applied AI.",
+    "I build systems that are meant to be operated: Kafka pipelines with " +
+      "idempotent processing and dead-letter queues, LLM gateways with " +
+      "semantic caching and failover, and AWS pipelines where a human signs " +
+      "off on every AI finding. I'm also a published researcher: my IEEE " +
+      "paper introduces an interpretable, quantum-based 2Q-learning approach " +
+      "for detecting DDoS attacks in fog computing.",
   ],
   // Categorized to mirror the résumé's Technical Skills section.
   skills: [
     {
       label: "Languages",
-      items: ["Go", "Python", "Java", "C++", "JavaScript", "TypeScript", "SQL"],
+      items: ["Go", "Python", "TypeScript", "Java", "C++", "JavaScript", "SQL"],
     },
     {
       label: "Backend & Distributed",
       items: [
+        "Node.js",
+        "NestJS",
         "FastAPI",
-        "Celery",
+        "Kafka",
         "RabbitMQ",
+        "Celery",
         "REST APIs",
         "WebSockets",
-        "Microservices",
         "Concurrency",
       ],
     },
     {
       label: "AI & ML",
       items: [
+        "LLMs",
+        "RAG",
+        "Amazon Bedrock",
+        "Pinecone",
+        "pgvector",
         "PyTorch",
-        "TensorFlow",
         "scikit-learn",
-        "Pandas",
-        "sentence-transformers",
-        "LangChain",
-        "LLM fine-tuning",
+        "LightGBM",
+        "MLflow",
       ],
     },
     {
@@ -100,6 +104,8 @@ export const about = {
         "AWS",
         "Docker",
         "Kubernetes",
+        "Terraform",
+        "Ansible",
         "Prometheus",
         "Grafana",
         "GitHub Actions",
@@ -108,7 +114,7 @@ export const about = {
     },
     {
       label: "Data & Frontend",
-      items: ["PostgreSQL", "MySQL", "MongoDB", "Redis", "React", "Next.js", "TailwindCSS"],
+      items: ["PostgreSQL", "Redis", "MongoDB", "React", "Next.js", "TailwindCSS"],
     },
   ],
   certifications: [
@@ -121,37 +127,52 @@ export const about = {
 
 /* --- Impact band (count-up stats) --- */
 export const impactStats = [
-  { value: 594, suffix: " RPS", label: "Peak gateway throughput (Helmsman, warm cache)" },
-  { value: 85, suffix: "%", label: "LLM spend avoided (Harbor gateway)" },
+  { value: 61, suffix: "×", label: "Event-processing throughput gain (Insight, 46 → 2,816 events/sec)" },
+  { value: 85, suffix: "%", label: "Semantic-cache hit rate (Harbor, benchmark workload)" },
   { value: 95, suffix: "%", label: "DDoS detection accuracy (IEEE research)" },
   { value: 1, suffix: "", label: "IEEE peer-reviewed publication" },
 ];
 
-/* --- Experience (matches résumé's Professional Experience) --- */
+/* --- Experience (matches résumé's Work Experience) --- */
 export const experience = [
   {
-    company: "Stack Lane",
-    role: "Artificial Intelligence Intern",
-    period: "Mar — Jun 2025",
-    where: "Bangalore, India",
+    company: "Siemens (Stack Lane team)",
+    role: "Software Engineer Intern",
+    period: "Aug 2024 — Jul 2025",
+    where: "Remote",
     blurb:
-      "AI engineering intern focused on LLM fine-tuning, retrieval-augmented systems, and production ML pipelines.",
+      "Built and shipped AI-powered full-stack applications and a RAG chatbot as part of the Stack Lane team.",
     bullets: [
-      "Fine-tuned LLaMA 2 in PyTorch with a custom training pipeline that cut inference and training compute cost by 30%.",
-      "Refactored preprocessing scripts, increasing data throughput by 35% and enabling training on datasets twice as large.",
-      "Engineered retrieval-augmented generation (RAG) features with a Pinecone vector database and the Mistral LLM API for semantic search and grounded responses.",
-      "Led a 3-engineer team building an AI chatbot from prototype to production, owning architecture decisions and integration.",
+      "Engineered 2 full-stack applications using React, Node.js and PostgreSQL, integrating REST APIs and authentication to serve 2,500+ users.",
+      "Improved AI chatbot retrieval relevance by 40% through a Pinecone-backed RAG pipeline, supporting 1,200+ conversations with 850 ms p95 latency.",
+      "Led 3 interns through architecture design and API integration, resolving 9 production issues through systematic debugging and service-level testing.",
+      "Automated frontend and backend deployments using Docker, Azure, and Vercel CI/CD pipelines, reducing release time by 70%, from 20 to 6 minutes.",
     ],
   },
   {
-    company: "Vault of Codes",
-    role: "Web Development Intern",
-    period: "May 2024 — Jan 2025",
+    company: "Unisys (Vault of Codes team)",
+    role: "Software Engineering Intern",
+    period: "Apr — Jun 2024",
     where: "Remote",
-    blurb: "Full-stack intern building responsive, production-hosted web applications.",
+    blurb:
+      "Built a production digital marketplace with real-time messaging as part of the Vault of Codes team.",
     bullets: [
-      "Built a responsive portfolio and e-commerce site with real-time chat and one-click checkout, improving cross-device responsiveness by 30% and lifting conversion 20%.",
-      "Optimized page-load performance to under 1.2s across devices via asset optimization and component-level lazy loading.",
+      "Developed a full-stack digital marketplace serving 8,000+ users and processing 1,600+ orders, generating $20K in gross merchandise value.",
+      "Increased checkout conversion from 41% to 50% (22% relative improvement) through funnel optimization and one-click checkout, contributing $14K in revenue.",
+      "Engineered a real-time messaging system using WebSockets, supporting 350 concurrent connections with sub-150 ms latency and 99.8% message delivery.",
+      "Improved mobile conversion by 8% through Lighthouse-guided optimizations, reducing page load time to under 1.2 seconds.",
+    ],
+  },
+  {
+    company: "Siddaganga Institute of Technology",
+    role: "Research Assistant",
+    period: "May 2024 — Jan 2025",
+    where: "Tumkur, India",
+    blurb:
+      "Research on interpretable, quantum-based reinforcement learning for network-attack detection.",
+    bullets: [
+      "Evaluated a quantum-based 2Q learning approach for DDoS detection across 5 datasets, achieving 95% detection performance.",
+      "Improved model convergence by 30% through experimental optimization and comparative evaluation, contributing to a peer-reviewed IEEE publication.",
     ],
   },
 ];
@@ -160,55 +181,55 @@ export const experience = [
 export const featured = [
   {
     no: "01",
-    name: "Helmsman",
-    flag: "Distributed LLM Gateway",
+    name: "InspectIQ",
+    flag: "AI-Assisted Vehicle Inspection Platform",
     description:
-      "A self-hosted, OpenAI-compatible LLM inference gateway in Go — lock-free round-robin load balancing, per-key Redis token-bucket rate limiting, semantic caching, and per-backend circuit breakers, deployed on Kubernetes with full Prometheus/Grafana observability.",
+      "A vehicle inspection and condition-report platform for wholesale operations. Inspectors capture required photo evidence on web or mobile; images flow through S3 → SQS → Lambda to Amazon Bedrock, outputs are validated against a strict schema, and a human reviewer must confirm every finding before it enters an auditable report. AI suggests; a human decides.",
     metrics: [
-      { value: 0.2, suffix: "ms", label: "p50 latency (warm)" },
-      { value: 594, suffix: " RPS", label: "throughput (warm)" },
-      { value: 17, suffix: "×", label: "cache speedup" },
+      { value: 95, suffix: "%", label: "schema-valid AI outputs" },
+      { value: 92, suffix: "%", label: "test coverage" },
+      { value: 108, suffix: "", label: "image regression corpus" },
     ],
-    tags: ["Go", "Redis", "Kubernetes", "Prometheus", "Grafana", "Ollama"],
+    tags: ["React", "TypeScript", "AWS Lambda", "Bedrock", "S3 · SQS", "PostgreSQL", "Terraform"],
     links: {
-      github: "https://github.com/sohanreddyk/helmsman",
-      demo: null,
+      github: "https://github.com/sohanreddyk/InspectIQ",
+      demo: "https://inspectiq.pages.dev/",
     },
     pipeline: {
-      title: "Request path",
+      title: "Inspection pipeline",
       nodes: [
-        { label: "auth · rate limit · semaphore" },
-        { label: "semantic cache", detail: "cosine ≥ 0.95", hot: true },
-        { label: "round-robin load balancer" },
-        { label: "circuit breaker + retry" },
-        { label: "Ollama backends ×N" },
+        { label: "capture on web / mobile → private S3 upload" },
+        { label: "SQS queue → Lambda worker" },
+        { label: "Bedrock analysis + strict schema validation", detail: "95% valid", hot: true },
+        { label: "reviewer confirms, edits, or rejects" },
+        { label: "graded report + full audit trail" },
       ],
     },
   },
   {
     no: "02",
-    name: "Lumen",
-    flag: "Distributed AI Evaluation Platform",
+    name: "Insight",
+    flag: "Distributed Real-Time Analytics Platform",
     description:
-      "A distributed platform that scores LLM outputs across 5 pluggable evaluators, detects cross-run regressions with a Mann-Whitney U test, and auto-alerts when pass rate drops below 70% — Celery workers persist to PostgreSQL, surfaced on a live React dashboard.",
+      "A multi-tenant, real-time product-analytics platform — a compact Segment / PostHog. Events flow over HTTP into Kafka, through idempotent stream processing into materialized read models, and out to a live dashboard over SSE. Tenant isolation, a dead-letter queue, OpenTelemetry tracing, and a load-tested 61× throughput optimization.",
     metrics: [
-      { value: 5, suffix: "", label: "pluggable evaluators" },
-      { value: 6, prefix: "2→", suffix: "", label: "K8s HPA replicas" },
-      { value: 70, suffix: "%", label: "auto-alert threshold" },
+      { value: 61, suffix: "×", label: "throughput gain (46 → 2,816 events/sec)" },
+      { value: 41.1, suffix: "K", label: "events in the documented load test" },
+      { value: 0, suffix: "", label: "request errors, zero consumer lag" },
     ],
-    tags: ["FastAPI", "Celery", "PostgreSQL", "Redis", "React", "Kubernetes"],
+    tags: ["TypeScript", "NestJS", "Kafka", "PostgreSQL", "Redis", "Next.js", "OpenTelemetry"],
     links: {
-      github: "https://github.com/sohanreddyk/lumen",
+      github: "https://github.com/sohanreddyk/realtime-analytics-pipeline",
       demo: null,
     },
     pipeline: {
-      title: "Eval pipeline",
+      title: "Event path",
       nodes: [
-        { label: "FastAPI → Postgres (run: pending)" },
-        { label: "Celery worker → Redis queue" },
-        { label: "evaluate", detail: "5 strategies", hot: true },
-        { label: "Mann-Whitney U regression check" },
-        { label: "alert if pass-rate < 70%" },
+        { label: "ingestion API · API key · rate limit · idempotency" },
+        { label: "Kafka raw-events (keyed by tenant)" },
+        { label: "processor", detail: "one Postgres txn", hot: true },
+        { label: "read models + Redis pub/sub → SSE dashboard" },
+        { label: "DLQ for poison messages · OTel → Jaeger / Grafana" },
       ],
     },
   },
@@ -220,7 +241,7 @@ export const featured = [
       "A self-hosted reliability layer that sits between an app and its LLM provider: an OpenAI-compatible Go gateway with streaming semantic cache, model routing, provider fallback with circuit breaking, and Redis rate limiting, paired with a Python evaluation control plane whose statistical regression gate blocks quality drops in CI — fully observable via Prometheus and Grafana.",
     metrics: [
       { value: 9.5, suffix: "\u00d7", label: "faster on cache hits (p50)" },
-      { value: 85, suffix: "%", label: "estimated spend avoided" },
+      { value: 85, suffix: "%", label: "cache-hit rate (benchmark)" },
       { value: 100, suffix: "%", label: "served through a provider outage" },
     ],
     tags: ["Go", "FastAPI", "Redis", "pgvector", "Prometheus", "Grafana"],
@@ -245,35 +266,59 @@ export const featured = [
 export const projectsIndex = [
   {
     no: "04",
-    name: "ChatFlow",
+    name: "Homelab Infrastructure",
     description:
-      "A multithreaded Java WebSocket chat server on AWS EC2 with a RabbitMQ topic exchange and channel pooling, tuned to sustain ~131K messages/sec across four load-balanced servers.",
-    tags: "Java · RabbitMQ · AWS EC2",
-    url: "https://github.com/sohanreddyk/chatflow",
+      "A self-hosted DevOps lab on KVM/libvirt, defined entirely as code: Terraform, Ansible, k3s, GitLab CI/CD with security scanning, Prometheus/Grafana/Loki with 20+ alert rules, 14 runbooks with a ~2-hour RTO, and a Claude-powered alert-diagnosis bridge into Slack.",
+    tags: "Terraform · Kubernetes · Ansible",
+    url: "https://github.com/sohanreddyk/homelab-infrastructure",
   },
   {
     no: "05",
-    name: "Self-Driving Car RL",
+    name: "BIXI Demand MLOps",
     description:
-      "A 2D top-down driving simulator in PyTorch with ray-cast sensors, trained with DQN and PPO to learn control policies from scratch.",
-    tags: "PyTorch · DQN · PPO",
-    url: "https://github.com/sohanreddyk/self-driving-car-rl",
+      "15-minute demand forecasts for 1,100+ BIXI stations (LightGBM + Optuna, test RMSE 1.035 departures / 1.026 arrivals) with MLflow registry, SHAP/LIME, Evidently drift monitoring, and a CDK-defined AWS pipeline. The AWS runtime is retired; a live Streamlit demo remains.",
+    tags: "MLOps · AWS · LightGBM",
+    url: "https://github.com/sohanreddyk/bixi-demand-mlops-platform",
   },
   {
     no: "06",
-    name: "Leaf Disease Detection",
+    name: "Warden",
     description:
-      "A CNN image classifier diagnosing disease in mango and banana leaves at 98.7% accuracy, built as a fast field diagnostic for growers.",
-    tags: "Deep Learning · CNN",
-    url: "https://github.com/sohanreddyk/leaf-disease-detection",
+      "A vulnerability-management orchestrator that aggregates findings from 6 infrastructure scanners plus SAST, SCA, DAST, container and IaC sources, deduplicates per CVE and asset, and ranks 1,000+ vulnerabilities with a 6-factor model (CVSS, CISA KEV, EPSS, SSVC, exploit availability, asset criticality). SLA tracking, Jira and Slack alerts, and a React dashboard cut manual triage time by 60%.",
+    tags: "FastAPI · Celery · React",
+    url: "https://github.com/sohanreddyk/warden",
   },
   {
     no: "07",
-    name: "Reddit Sentiment Analysis",
+    name: "TaskForge",
     description:
-      "An NLP tool that scrapes Reddit threads and summarizes posts, scores sentiment, and visualizes engagement to cut through the noise.",
-    tags: "NLP · Python · AWS",
-    url: "https://github.com/sohanreddyk/reddit-analysis",
+      "A header-only C++17 task queue on Redis: multithreaded workers, priorities, scheduled tasks, at-least-once delivery with stuck-task recovery, plus a Python CLI and Next.js dashboard. 5,000 tasks/sec at 20 ms p95 dispatch and 99.9% completion in failure testing.",
+    tags: "C++17 · Redis · Concurrency",
+    url: "https://github.com/sohanreddyk/TaskForge",
+  },
+  {
+    no: "08",
+    name: "ClaimDesk",
+    description:
+      "A conversational insurance-claims agent on a four-phase SOP. The LLM interprets and phrases; deterministic code controls verification, data access, and every side effect. 670+ Python tests and a requirements matrix mapping each requirement to its proof. A single-instance demo.",
+    tags: "LLM Agents · FastAPI · React",
+    url: "https://github.com/sohanreddyk/claimdesk",
+  },
+  {
+    no: "09",
+    name: "Helmsman",
+    description:
+      "A self-hosted, OpenAI-compatible LLM inference gateway in Go — lock-free round-robin load balancing, per-key Redis token-bucket rate limiting, semantic caching, and per-backend circuit breakers on Kubernetes. 594 RPS and 0.2 ms p50 warm, 17× cache speedup.",
+    tags: "Go · Redis · Kubernetes",
+    url: "https://github.com/sohanreddyk/helmsman",
+  },
+  {
+    no: "10",
+    name: "Lumen",
+    description:
+      "A distributed LLM evaluation platform: 5 pluggable evaluators, Mann-Whitney U regression detection, Celery workers persisting to PostgreSQL, and a live React dashboard with automated quality alerts.",
+    tags: "FastAPI · Celery · PostgreSQL",
+    url: "https://github.com/sohanreddyk/lumen",
   },
 ];
 
@@ -285,7 +330,7 @@ export const publication = {
   meta: "3rd IEEE Int'l Conference on Intelligent and Innovative Technologies in Computing, Electrical and Electronics (IITCEE) · Bangalore, India · Jan 16–17, 2025",
   stats: [
     { value: 95, suffix: "%", label: "detection accuracy" },
-    { value: 35, suffix: "%", label: "less RL training time" },
+    { value: 30, suffix: "%", label: "faster model convergence" },
     { value: 5, suffix: "", label: "IoT datasets evaluated" },
   ],
   url: "https://ieeexplore.ieee.org/document/10915401",
@@ -297,7 +342,7 @@ export const education = [
     years: "2025 — 2027",
     school: "Northeastern University",
     degree: "M.S. Computer Science",
-    note: "AI & Software Engineering · Seattle, WA · Sep 2025 – May 2027",
+    note: "GPA 3.9 · Seattle, WA · Sep 2025 – May 2027",
   },
   {
     years: "2021 — 2025",
